@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cookbook Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <button class="logo" id="logo" type="button"><i>🍴</i>cookbook</button>
+    <form class="search" id="searchForm">
+      <input type="text" id="searchInput" placeholder="Search recipes from all over the world..." aria-label="Search recipes" autocomplete="off">
+      <button class="btn-go" type="submit">Search</button>
+    </form>
+    <nav class="nav">
+      <button class="nav-btn" id="addBtn" type="button"><span class="ic">✎</span>Add recipe</button>
+      <button class="nav-btn" id="bmBtn" type="button" aria-expanded="false"><span class="ic">🔖</span>Bookmarks</button>
+      <div class="bm-panel" id="bmPanel"></div>
+    </nav>
+  </header>
+
+  <section class="results" id="results"></section>
+  <section class="recipe" id="recipe"></section>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="win" role="dialog" aria-modal="true" aria-label="Add recipe">
+    <button class="x" id="closeAdd" type="button" aria-label="Close">&times;</button>
+    <form id="newForm" novalidate>
+      <div class="upload-grid">
+        <div class="col">
+          <h3>Recipe data</h3>
+          <div class="frow"><label for="fName">Title</label><input id="fName" maxlength="60" autocomplete="off"></div>
+          <div class="frow"><label for="fUrl">URL</label><input id="fUrl" placeholder="Link to directions (optional)" autocomplete="off"></div>
+          <div class="frow"><label for="fPhoto">Image URL</label><input id="fPhoto" placeholder="Optional" autocomplete="off"></div>
+          <div class="frow"><label for="fPub">Publisher</label><input id="fPub" maxlength="30" autocomplete="off"></div>
+          <div class="frow"><label for="fTime">Prep time</label><input id="fTime" type="number" min="1"></div>
+          <div class="frow"><label for="fServes">Servings</label><input id="fServes" type="number" min="1"></div>
+        </div>
+        <div class="col">
+          <h3>Ingredients</h3>
+          <div class="frow"><label for="fIng1">Ingredient 1</label><input class="ing-input" id="fIng1" placeholder="Format: 'Quantity,Unit,Description'" autocomplete="off"></div>
+          <div class="frow"><label for="fIng2">Ingredient 2</label><input class="ing-input" id="fIng2" placeholder="Format: 'Quantity,Unit,Description'" autocomplete="off"></div>
+          <div class="frow"><label for="fIng3">Ingredient 3</label><input class="ing-input" id="fIng3" placeholder="Format: 'Quantity,Unit,Description'" autocomplete="off"></div>
+          <div class="frow"><label for="fIng4">Ingredient 4</label><input class="ing-input" id="fIng4" placeholder="Format: 'Quantity,Unit,Description'" autocomplete="off"></div>
+          <div class="frow"><label for="fIng5">Ingredient 5</label><input class="ing-input" id="fIng5" placeholder="Format: 'Quantity,Unit,Description'" autocomplete="off"></div>
+          <div class="frow"><label for="fIng6">Ingredient 6</label><input class="ing-input" id="fIng6" placeholder="Format: 'Quantity,Unit,Description'" autocomplete="off"></div>
+        </div>
+      </div>
+      <div class="howrow"><label for="fSteps">How to cook (optional, one step per line)</label><textarea id="fSteps"></textarea></div>
+      <div class="error" id="formError"></div>
+      <button class="upload" type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 9.5a4 4 0 0 1-.5 8.5"/><path d="M12 21v-8"/><path d="M9 15.5l3-3 3 3"/></svg>
+        Upload
+      </button>
+    </form>
+  </div>
+</div>
+
+ <script src="script.js"></script>
+</body>
+</html>
